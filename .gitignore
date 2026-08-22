@@ -1,0 +1,167 @@
+# =============================================================================
+# Dayflow HRMS — .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Python
+# -----------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+MANIFEST
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytest.ini.bak
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+
+# -----------------------------------------------------------------------------
+# Virtual Environments
+# -----------------------------------------------------------------------------
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+.virtualenv/
+
+# -----------------------------------------------------------------------------
+# Environment / Secrets
+# -----------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+
+# -----------------------------------------------------------------------------
+# Odoo Runtime Files
+# -----------------------------------------------------------------------------
+*.log
+odoo.conf
+odoo-server.conf
+odoo-server.log
+*.pid
+
+# Odoo filestore (runtime data — not source)
+filestore/
+
+# Odoo sessions
+sessions/
+
+# Odoo generated assets (runtime — not source)
+web/static/lib/
+# Note: do NOT ignore custom static assets in the module's own static/ dir
+
+# -----------------------------------------------------------------------------
+# Database Dumps
+# -----------------------------------------------------------------------------
+*.dump
+*.sql.gz
+*.pg_dump
+
+# -----------------------------------------------------------------------------
+# IDE / Editor Metadata
+# -----------------------------------------------------------------------------
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.netrwhist
+
+# Emacs
+\#*\#
+.\#*
+
+# -----------------------------------------------------------------------------
+# OS Metadata
+# -----------------------------------------------------------------------------
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+.directory
+
+# -----------------------------------------------------------------------------
+# Docker
+# -----------------------------------------------------------------------------
+# Do not ignore Dockerfiles or docker-compose files — those are source
+# Ignore local runtime overrides
+docker-compose.override.yml
+.docker/
+
+# -----------------------------------------------------------------------------
+# Temporary / Scratch Files
+# -----------------------------------------------------------------------------
+*.tmp
+*.bak
+*.orig
+*.rej
+scratch/
+tmp/
+
+# -----------------------------------------------------------------------------
+# Node (only if OWL/frontend tooling is introduced in a future phase)
+# -----------------------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
