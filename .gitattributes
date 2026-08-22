@@ -1,0 +1,60 @@
+# .gitattributes — Dayflow HRMS
+# Normalize line endings: store as LF in the repository.
+# On Windows, Git will check out files with CRLF (if core.autocrlf=true),
+# but the canonical stored form is always LF.
+
+# Default: normalize all text files to LF in the index
+* text=auto eol=lf
+
+# Python source
+*.py text eol=lf
+
+# Odoo XML (views, data, security, manifest)
+*.xml text eol=lf
+
+# CSV (ir.model.access.csv, record rules)
+*.csv text eol=lf
+
+# Configuration files
+*.cfg  text eol=lf
+*.conf text eol=lf
+*.ini  text eol=lf
+
+# Docker / Compose
+Dockerfile   text eol=lf
+*.dockerfile text eol=lf
+compose.yaml text eol=lf
+*.yml        text eol=lf
+*.yaml       text eol=lf
+
+# Shell scripts (always LF)
+*.sh text eol=lf
+
+# Documentation / Markdown
+*.md   text eol=lf
+*.rst  text eol=lf
+*.txt  text eol=lf
+
+# Editor configuration
+.editorconfig text eol=lf
+.gitignore    text eol=lf
+.gitattributes text eol=lf
+
+# JSON
+*.json text eol=lf
+
+# Binaries — do not diff or mangle
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.svg  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.pdf   binary
+*.zip   binary
+*.gz    binary
+*.tar   binary

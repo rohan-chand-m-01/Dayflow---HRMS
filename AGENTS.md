@@ -10,7 +10,7 @@ This file governs all agent and developer behaviour for the Dayflow HRMS project
 Dayflow is an Odoo custom module implementing a Human Resource Management System.
 
 - **Repository:** `Dayflow---HRMS`
-- **Module technical name:** `dayflow_hrms` *(to be created in Phase 1)*
+- **Module technical name:** `dayflow_hrms` — located at `addons/dayflow_hrms/`
 - **Context:** Odoo × NMIT Bengaluru online screening hackathon
 
 ---
@@ -129,28 +129,28 @@ Do not rely solely on:
 **Member 1 owns:**
 
 ```
-models/employee.py
-models/attendance.py
-views/employee_views.xml
-views/attendance_views.xml
-views/employee_dashboard.xml
-security/*
-tests/test_employee.py
-tests/test_attendance.py
+addons/dayflow_hrms/models/employee.py
+addons/dayflow_hrms/models/attendance.py
+addons/dayflow_hrms/views/employee_views.xml
+addons/dayflow_hrms/views/attendance_views.xml
+addons/dayflow_hrms/views/employee_dashboard.xml
+addons/dayflow_hrms/security/*
+addons/dayflow_hrms/tests/test_employee.py
+addons/dayflow_hrms/tests/test_attendance.py
 ```
 
 **Member 2 owns:**
 
 ```
-models/leave.py
-models/salary.py
-views/leave_views.xml
-views/salary_views.xml
-views/hr_dashboard.xml
-data/*
-demo/*
-tests/test_leave.py
-tests/test_salary.py
+addons/dayflow_hrms/models/leave.py
+addons/dayflow_hrms/models/salary.py
+addons/dayflow_hrms/views/leave_views.xml
+addons/dayflow_hrms/views/salary_views.xml
+addons/dayflow_hrms/views/hr_dashboard.xml
+addons/dayflow_hrms/data/*
+addons/dayflow_hrms/demo/*
+addons/dayflow_hrms/tests/test_leave.py
+addons/dayflow_hrms/tests/test_salary.py
 README.md
 ```
 
@@ -161,9 +161,16 @@ Do not modify another member's owned feature files without explicit coordination
 These files are shared — treat them with extra caution:
 
 ```
-__manifest__.py
-__init__.py
-models/__init__.py
+compose.yaml
+.env.example
+config/odoo.conf
+.gitattributes
+.gitignore
+.editorconfig
+AGENTS.md
+addons/dayflow_hrms/__init__.py
+addons/dayflow_hrms/__manifest__.py
+addons/dayflow_hrms/models/__init__.py
 ```
 
 When modifying a shared file:
@@ -275,4 +282,4 @@ Detected environment as of Phase 0:
 
 ---
 
-*Last updated: Phase 0 — Repository Governance*
+*Last updated: Phase 1 — Environment bootstrap and module skeleton*

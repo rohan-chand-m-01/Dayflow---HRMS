@@ -1,0 +1,61 @@
+# compose.yaml — Dayflow HRMS
+# Odoo 18.0 Community + PostgreSQL 16 development environment.
+# Usage:
+#   cp .env.example .env   # then fill in POSTGRES_PASSWORD and ODOO_MASTER_PASSWORD
+#   docker compose up -d
+
+name: dayflow-hrms
+
+services:
+
+  # ── PostgreSQL 16 ───────────────────────────────────────────────────────────
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-dayflow_dev}
+      POSTGRES_USER: ${POSTGRES_USER:-odoo}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-odoo}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - dayflow_net
+
+  # ── Odoo 18.0 Community ─────────────────────────────────────────────────────
+  odoo:
+    image: odoo:18.0
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${ODOO_PORT:-8069}:8069"
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: ${POSTGRES_USER:-odoo}
+      PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be set in .env}
+    volumes:
+      # Odoo runtime filestore (attachments, sessions, etc.)
+      - odoo_data:/var/lib/odoo
+      # Custom addons directory
+      - ./addons:/mnt/extra-addons:ro
+      # Odoo configuration file
+      - ./config/odoo.conf:/etc/odoo/odoo.conf:ro
+    networks:
+      - dayflow_net
+
+# ── Named volumes ────────────────────────────────────────────────────────────
+volumes:
+  db_data:
+  odoo_data:
+
+# ── Network ──────────────────────────────────────────────────────────────────
+networks:
+  dayflow_net:
+    driver: bridge

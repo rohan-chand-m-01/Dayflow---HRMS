@@ -68,8 +68,9 @@ venv.bak/
 # Odoo Runtime Files
 # -----------------------------------------------------------------------------
 *.log
-odoo.conf
-odoo-server.conf
+# Ignore runtime-generated config at repo root only (not config/odoo.conf which is source)
+/odoo.conf
+/odoo-server.conf
 odoo-server.log
 *.pid
 
